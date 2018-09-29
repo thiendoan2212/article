@@ -3,13 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { RestResponse } from '../model/restresponse';
 import { Article } from '../model/article';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ArticleService {
 
-  URL_API = "/articles/  ";
+  URL_API = environment.URL_API;
 
   constructor(private http: HttpClient) { }
 
