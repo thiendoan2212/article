@@ -9,7 +9,7 @@ import { Article } from '../model/article';
 })
 export class ArticleService {
 
-  URL_API = "/articles/  ";
+  URL_API = "/articles/";
 
   constructor(private http: HttpClient) { }
 
