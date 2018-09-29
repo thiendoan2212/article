@@ -1,0 +1,74 @@
+<div class="jumbotron">
+  <h1>Article</h1>
+  <p>Simple demo with Spring Boot Restful API and Angular...</p>
+</div>
+<div class="container">
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#article">Articles</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#logs">Logging</a>
+    </li>
+  </ul>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <!-- article tab -->
+    <div class="tab-pane container active" id="article">
+      <div class="row">
+        <div class="col-md-6 mt-3">
+          <!-- form input -->
+          <form>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">ID</span>
+              </div>
+              <input type="text" class="form-control" name="id" disabled [(ngModel)]="selectedArticle.id">
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Title</span>
+              </div>
+              <input type="text" class="form-control" name="title" [(ngModel)]="selectedArticle.title">
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Category</span>
+              </div>
+              <input type="text" class="form-control" name="category" [(ngModel)]="selectedArticle.category">
+            </div>
+          </form>
+          <div class="d-flex mb-3">
+            <div class="p-2 mr-auto">
+              <button type="button" class="btn btn-outline-danger" (click)="clearForm()">Clear</button>
+            </div>
+            <div class="p-2">
+              <button type="button" class="btn btn-outline-success" (click)="addArticle()">Add</button>
+            </div>
+            <div class="p-2">
+              <button type="button" class="btn btn-outline-primary" (click)="updateArticle()">Update</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mt-3">
+          <!-- list article -->
+          <ul class="list-group">
+            <li *ngFor="let article of data" (click)="selectedArticle = article" class="list-group-item d-flex">
+              <span class="p-2 flex-grow-1"> {{ article.title }}</span>
+              <button class="p-2 btn btn-outline-light" (click)="deleteAritcle(article.id)"><i class="fa fa-remove text-danger"></i></button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- log tab -->
+    <div class="tab-pane container fade" id="logs">
+      <ul class="list-group mt-3">
+        <li *ngFor="let log of logs" class="list-group-item">
+          <span class="p-2 flex-grow-1"> {{ log }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
